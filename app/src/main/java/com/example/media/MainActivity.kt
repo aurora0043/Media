@@ -1,16 +1,21 @@
 package com.example.media
 
+import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.media.ui.theme.MediaTheme
 
@@ -33,14 +38,54 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column {
-        Text(
-            text = "Hello $name!",
-            modifier = modifier
-        )
-        Text("hi")
+    Column{
+        LazyRow{
+            item {
+                Image(
+                    painter = painterResource(id = R.drawable.animal0),
+                    contentDescription = "動物0"
+                )
+            }
+
+            item {
+                Image(
+                    painter = painterResource(id = R.drawable.animal1),
+                    contentDescription = "動物1"
+                )
+            }
+
+            item {
+                Image(
+                    painter = painterResource(id = R.drawable.animal2),
+                    contentDescription = "動物2"
+                )
+            }
+        }
+
+        LazyColumn {
+            item{
+                Text(
+                    text = "Hello $name!",
+                    modifier = modifier
+                )
+            }
+
+            item{
+                Text("hi")
+            }
+
+            items(50){ index->
+                Text(index.toString())
+            }
+
+            /*item{
+            for(i in 0..50){
+               Text(i.toString())
+            }*/
+        }
     }
-}
+    }
+
 
 @Preview(showBackground = true)
 @Composable
