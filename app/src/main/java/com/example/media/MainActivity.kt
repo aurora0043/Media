@@ -1,6 +1,7 @@
 package com.example.media
 
 import android.media.Image
+import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -50,11 +52,16 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         R.drawable.animal8,R.drawable.animal9,
         )
     var AnimalsName = arrayListOf("鴨子","企鵝","青蛙","貓頭鷹","鯨魚","牛","無尾熊","獅子","狐狸","小雞")
-
+    var context = LocalContext.current
+    var mper = MediaPlayer()
     Column{
 
         Row{
-            Button(onClick={}) {
+            Button(onClick={
+                mper.reset()
+                mper = MediaPlayer.create(context,R.raw.tcyang)
+                mper.start()
+            }) {
                 Text("歡迎修課")
                 Image(
                     painter = painterResource(id =R.drawable.teacher),
@@ -62,7 +69,11 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                     Modifier.size(60.dp)
                 )
             }
-            Button(onClick={}) {
+            Button(onClick={
+                mper.reset()
+                mper = MediaPlayer.create(context,R.raw.fly)
+                mper.start()
+            }) {
                 Text("展翅飛翔")
                 Image(
                     painter = painterResource(id =R.drawable.fly),
