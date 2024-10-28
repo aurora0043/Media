@@ -38,26 +38,24 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
+    var Animals = arrayListOf(
+        R.drawable.animal0,R.drawable.animal1,
+        R.drawable.animal2,R.drawable.animal3,
+        R.drawable.animal4,R.drawable.animal5,
+        R.drawable.animal6,R.drawable.animal7,
+        R.drawable.animal8,R.drawable.animal9,
+        )
+
     Column{
         LazyRow{
-            item {
+            items(10){
+                index->
+                Text(index.toString(),
+                    modifier = modifier
+                    )
                 Image(
-                    painter = painterResource(id = R.drawable.animal0),
+                    painter = painterResource(id = Animals[index]),
                     contentDescription = "動物0"
-                )
-            }
-
-            item {
-                Image(
-                    painter = painterResource(id = R.drawable.animal1),
-                    contentDescription = "動物1"
-                )
-            }
-
-            item {
-                Image(
-                    painter = painterResource(id = R.drawable.animal2),
-                    contentDescription = "動物2"
                 )
             }
         }
