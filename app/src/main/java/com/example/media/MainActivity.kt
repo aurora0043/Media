@@ -7,16 +7,20 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.media.ui.theme.MediaTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,6 +52,26 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     var AnimalsName = arrayListOf("鴨子","企鵝","青蛙","貓頭鷹","鯨魚","牛","無尾熊","獅子","狐狸","小雞")
 
     Column{
+
+        Row{
+            Button(onClick={}) {
+                Text("歡迎修課")
+                Image(
+                    painter = painterResource(id =R.drawable.teacher),
+                    contentDescription = "修課" ,
+                    Modifier.size(60.dp)
+                )
+            }
+            Button(onClick={}) {
+                Text("展翅飛翔")
+                Image(
+                    painter = painterResource(id =R.drawable.fly),
+                    contentDescription = "飛" ,
+                    Modifier.size(60.dp)
+                )
+            }
+        }
+
         LazyRow{
             items(10){
                 index->
@@ -87,6 +111,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             }*/
         }
     }
+
     }
 
 
